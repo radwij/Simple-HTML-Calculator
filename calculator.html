@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="A brief description about the website">
+        <meta name="author" content="Raditya Partha">
+        <meta name="viewport" content=width=device-width, initial-scale=1.0">
+        <title>Homepage</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <h1>DIS IS CALCULATOR</h1>
+        <form>
+            Number1:<br> <input type="number" id="number1">
+            <br>
+            Operation:<br>
+            <select name="operation" id="op">
+                <option value="*">x</option>
+                <option value="/">÷</option>
+                <option value="-">-</option>
+                <option value="+">+</option>
+            </select>
+            <br>
+            Number2:<br> <input type="number" id="number2">
+            <br><br>
+            <button type="button" id="calculateButton">Calculate</button>
+        </form>
+    
+        <h3 id="result">hasil</h3>
+    
+        <script>
+            const number1Input = document.getElementById("number1");
+            const number2Input = document.getElementById("number2");
+            const operationSelect = document.getElementById("op");
+            const resultElement = document.getElementById("result");
+            const calculateButton = document.getElementById("calculateButton");
+    
+            calculateButton.addEventListener("click", function () {
+                const selectedOperation = operationSelect.value;
+    
+                const num1 = parseFloat(number1Input.value);
+                const num2 = parseFloat(number2Input.value);
+    
+                let result;
+                switch (selectedOperation) {
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        result = num1 / num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    default:
+                        result = "Invalid operation";
+                }
+    
+                resultElement.textContent = `Result: ${result}`;
+            });
+        </script>
+    </body>
+</html>
